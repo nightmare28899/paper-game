@@ -5,8 +5,7 @@
   </div>
   <div class="modal-body">
     <div class="mb-3 text-center">
-      <img src="../../assets/images/image-rules.svg" height="300px" alt="rules" *ngIf="changeMode == false">
-      <img src="../../assets/images/image-rules-bonus.svg" height="300px" alt="rules" *ngIf="changeMode == true">
+      <img src="{{changeMode ? '../../assets/images/image-rules-bonus.svg' : '../../assets/images/image-rules.svg'}}" height="300px" alt="rules">
     </div>
   </div>
   <!-- <div class="modal-footer">

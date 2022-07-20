@@ -25,7 +25,6 @@ import {
   ],
 })
 export class HomeComponent implements OnInit {
-
   constructor(private api: BackendApiService) {}
 
   public data: Array<any> = [];
@@ -55,6 +54,7 @@ export class HomeComponent implements OnInit {
   public statusGame: boolean = false;
   public result: string = '';
   public changeMode: boolean = false;
+  public gameOver: boolean = false;
 
   ngOnInit(): void {
     this.api.currentVariableTest.subscribe((res) => {
@@ -79,58 +79,24 @@ export class HomeComponent implements OnInit {
     /* console.log(arrRandom[0]); */
     this.type = type;
     /* console.log('this type',this.type); */
-    if (type === 'Paper') {
-      this.img = this.content[0].image;
-      if (this.content[arrRandom[0]].type === type) {
-        setTimeout(() => {
-          this.result = this.stateG = 'Tie';
-        }, 3000);
-      } else if (this.content[arrRandom[0]].type === 'Rock') {
-        setTimeout(() => {
-          this.result = this.stateG = 'You Win';
-          this.score++;
-          localStorage.setItem('score', JSON.stringify(this.score));
-        }, 3000);
-      } else if (this.content[arrRandom[0]].type === 'Scissors') {
-        setTimeout(() => {
-          this.result = this.stateG = 'You Lose';
-        }, 3000);
-      }
-    } else if (type === 'Scissors') {
-      this.img = this.content[1].image;
-      if (this.content[arrRandom[0]].type === type) {
-        setTimeout(() => {
-          this.result = this.stateG = 'Tie';
-        }, 3000);
-      } else if (this.content[arrRandom[0]].type === 'Paper') {
-        setTimeout(() => {
-          this.result = this.stateG = 'You Win';
-          this.score++;
-          localStorage.setItem('score', JSON.stringify(this.score));
-        }, 3000);
-      } else if ('Scissors' && this.content[arrRandom[0]].type === 'Rock') {
-        setTimeout(() => {
-          this.result = this.stateG = 'You Lose';
-        }, 3000);
-      }
-    } else if (type == 'Rock') {
-      this.img = this.content[2].image;
-      if ('Rock' === this.content[arrRandom[0]].type) {
-        setTimeout(() => {
-          this.result = this.stateG = 'Tie';
-        }, 3000);
-      } else if ('Rock' && this.content[arrRandom[0]].type === 'Scissors') {
-        setTimeout(() => {
-          this.result = this.stateG = 'You Win';
-          this.score++;
-          localStorage.setItem('score', JSON.stringify(this.score));
-        }, 3000);
-      } else if ('Rock' && this.content[arrRandom[0]].type === 'Paper') {
-        setTimeout(() => {
-          this.result = this.stateG = 'You Lose';
-        }, 3000);
-      }
+    const position = this.content.findIndex((item) => item.type === type);
+    this.img = this.content[position].image;
+    if (this.content[arrRandom[0]].type === type) {
+      setTimeout(() => {
+        this.result = this.stateG = 'Tie';
+      }, 3000);
+    } else if (this.type === "Paper" && this.content[arrRandom[0]].type === 'Rock' || this.type === 'Scissors' && this.content[arrRandom[0]].type === 'Paper' || this.type === 'Rock' && this.content[arrRandom[0]].type === 'Scissors') {
+      setTimeout(() => {
+        this.result = this.stateG = 'You Win';
+        this.score++;
+        localStorage.setItem('score', JSON.stringify(this.score));
+      }, 3000);
+    } else {
+      setTimeout(() => {
+        this.result = this.stateG = 'You Lose';
+      }, 3000);
     }
+
     setTimeout(() => {
       this.theHousePick = this.content[arrRandom[0]].type;
       this.theHousePickImg = this.content[arrRandom[0]].image;
@@ -139,7 +105,11 @@ export class HomeComponent implements OnInit {
     }, 3000);
     setTimeout(() => {
       this.statusGame = true;
-    }, 4700);
+    }, 4000);/* 
+    setTimeout(() => {
+      this.gameOver = true;
+    }, 4500); */
+    
   }
 
   public reset() {
@@ -156,11 +126,7 @@ export class HomeComponent implements OnInit {
   }
 
   public changeModeFunction() {
-    if(this.changeMode) {
-      this.changeMode = false;
-    } else {
-      this.changeMode = true;
-    }
+    this.changeMode = !this.changeMode;
     this.api.changeMode.next(this.changeMode);
   }
 }

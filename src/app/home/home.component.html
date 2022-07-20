@@ -38,7 +38,7 @@
 
       <div class="col mx-auto">
         <br>
-        <div class="mt-5 pt-5" *ngIf="statusGame == true" @myInsertRemoveTrigger2>
+        <div class="mt-5 pt-5" *ngIf="gameOver == true" @myInsertRemoveTrigger2>
           <h1 class="text-light text-uppercase"
             *ngIf="stateG == 'You Win' || stateG == 'You Lose' || stateG == 'Tie'">{{ stateG }}</h1>
           <button type="button" class="bg-light text-uppercase px-5 py-2 mt-1 rounded-3"

@@ -10,6 +10,7 @@ export class BackendApiService {
 
   variableTest = new BehaviorSubject<Array<any>>([]);
   currentVariableTest = this.variableTest.asObservable();
+  
   changeMode = new BehaviorSubject<boolean>(false);
   currentChangeMode = this.changeMode.asObservable();
 
