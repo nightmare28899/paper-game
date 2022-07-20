@@ -1,0 +1,416 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --paper: radial-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+}
+
+body {
+  background-image: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-attachment: fixed;
+  font-family: "Barlow Semi Condensed";
+}
+
+.paperPosition {
+  margin-top: 24px;
+  width: 64px;
+  height: 80px;
+}
+
+.paper {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  padding: 15px 20px;
+  margin-left: 400px;
+  margin-top: 25px;
+}
+
+.paper {
+  background: linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(45deg, hsl(230, 89%, 62%), hsl(230, 89%, 65%)) border-box;
+  border: 25px solid transparent;
+  -moz-box-shadow: inset 0 8px 0 #dddddd;
+  -webkit-box-shadow: inset 0 8px 0 #dddddd;
+  box-shadow: inset 0 8px 0 #dddddd;
+  filter: drop-shadow(0 10px 0 hsl(230, 55%, 44%));
+}
+
+.buttonBg {
+  background: none;
+  border: 1px solid hsl(217, 16%, 45%);
+}
+
+.start-100 {
+  left: 94% !important;
+}
+
+.scissorsPosition {
+  margin-top: 24px;
+  width: 64px;
+  height: 80px;
+}
+
+.scissors {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  padding: 15px 20px;
+  margin-left: 680px;
+  margin-top: -200px;
+}
+
+.scissors {
+  background: linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(45deg, hsl(39, 89%, 49%), hsl(40, 84%, 53%)) border-box;
+  border: 25px solid transparent;
+  -moz-box-shadow: inset 0 8px 0 #dddddd;
+  -webkit-box-shadow: inset 0 8px 0 #dddddd;
+  box-shadow: inset 0 8px 0 #dddddd;
+  filter: drop-shadow(0 10px 0 hsl(40, 90%, 35%));
+}
+
+.rockPosition {
+  margin-top: 24px;
+  width: 64px;
+  height: 80px;
+}
+
+.rock {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  padding: 15px 20px;
+  margin-left: 540px;
+  margin-top: 38px;
+}
+
+.rock {
+  background: linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(45deg, hsl(349, 71%, 52%), hsl(349, 70%, 56%)) border-box;
+  border: 25px solid transparent;
+  -moz-box-shadow: inset 0 8px 0 #dddddd;
+  -webkit-box-shadow: inset 0 8px 0 #dddddd;
+  box-shadow: inset 0 8px 0 #dddddd;
+  filter: drop-shadow(0 10px 0 hsl(349, 90%, 33%));
+}
+
+.score {
+  color: hsl(229, 64%, 46%);
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.number {
+  color: hsl(229, 25%, 31%);
+}
+
+/* Elements You Picked */
+/* Size for paper */
+.paperRMK {
+  width: 260px;
+  height: 260px;
+  position: relative;
+  padding: 15px 20px;
+  margin-left: 154px;
+  margin-top: 44px;
+}
+
+.elementPositionRMK {
+  margin-top: 44px;
+  width: 75px;
+  height: 100px;
+}
+
+.paperRMK {
+  background: linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(45deg, hsl(230, 89%, 62%), hsl(230, 89%, 65%)) border-box;
+  border: 25px solid transparent;
+  -moz-box-shadow: inset 0 8px 0 #dddddd;
+  -webkit-box-shadow: inset 0 8px 0 #dddddd;
+  box-shadow: inset 0 8px 0 #dddddd;
+  filter: drop-shadow(0 10px 0 hsl(230, 55%, 44%));
+}
+
+.youPick {
+  margin-left: 288px;
+}
+/* ****** */
+
+/* Size for scissors */
+.scissorsRMK {
+  width: 260px;
+  height: 260px;
+  position: relative;
+  padding: 15px 20px;
+  margin-left: 154px;
+  margin-top: 44px;
+}
+
+.scissorsRMK {
+  background: linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(45deg, hsl(39, 89%, 49%), hsl(40, 84%, 53%)) border-box;
+  border: 25px solid transparent;
+  -moz-box-shadow: inset 0 8px 0 #dddddd;
+  -webkit-box-shadow: inset 0 8px 0 #dddddd;
+  box-shadow: inset 0 8px 0 #dddddd;
+  filter: drop-shadow(0 10px 0 hsl(40, 90%, 35%));
+}
+/* ****** */
+
+/* Size for rock */
+.rockRMK {
+  width: 260px;
+  height: 260px;
+  position: relative;
+  padding: 15px 20px;
+  margin-left: 154px;
+  margin-top: 44px;
+}
+
+.rockRMK {
+  background: linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(45deg, hsl(349, 71%, 52%), hsl(349, 70%, 56%)) border-box;
+  border: 25px solid transparent;
+  -moz-box-shadow: inset 0 8px 0 #dddddd;
+  -webkit-box-shadow: inset 0 8px 0 #dddddd;
+  box-shadow: inset 0 8px 0 #dddddd;
+  filter: drop-shadow(0 10px 0 hsl(349, 90%, 33%));
+}
+/* ****** */
+
+/* the house picked shadow */
+.shadowMachine {
+  width: 180px;
+  height: 180px;
+  position: relative;
+  padding: 15px 20px;
+  margin-left: 70px;
+  margin-top: 100px;
+}
+
+.shadowMachine {
+  background-color: #222121;
+  opacity: 0.4;
+}
+
+.housePick {
+  margin-left: -278px;
+}
+/* ****** */
+
+/* Size for paper */
+.paperRMKHP {
+  width: 260px;
+  height: 260px;
+  position: relative;
+  padding: 15px 20px;
+  margin-left: 64px;
+  margin-top: 44px;
+}
+
+.elementPositionRMKHP {
+  margin-top: 44px;
+  width: 75px;
+  height: 100px;
+}
+
+.paperRMKHP {
+  background: linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(45deg, hsl(230, 89%, 62%), hsl(230, 89%, 65%)) border-box;
+  border: 25px solid transparent;
+  -moz-box-shadow: inset 0 8px 0 #dddddd;
+  -webkit-box-shadow: inset 0 8px 0 #dddddd;
+  box-shadow: inset 0 8px 0 #dddddd;
+  filter: drop-shadow(0 10px 0 hsl(230, 55%, 44%));
+}
+/* ****** */
+/* Size for scissors */
+.scissorsRMKHP {
+  width: 260px;
+  height: 260px;
+  position: relative;
+  padding: 15px 20px;
+  margin-left: 54px;
+  margin-top: 44px;
+}
+
+.scissorsRMKHP {
+  background: linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(45deg, hsl(39, 89%, 49%), hsl(40, 84%, 53%)) border-box;
+  border: 25px solid transparent;
+  -moz-box-shadow: inset 0 8px 0 #dddddd;
+  -webkit-box-shadow: inset 0 8px 0 #dddddd;
+  box-shadow: inset 0 8px 0 #dddddd;
+  filter: drop-shadow(0 10px 0 hsl(40, 90%, 35%));
+}
+/* ****** */
+
+/* Size for rock */
+.rockRMKHP {
+  width: 260px;
+  height: 260px;
+  position: relative;
+  padding: 15px 20px;
+  margin-left: 54px;
+  margin-top: 44px;
+}
+
+.rockRMKHP {
+  background: linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(45deg, hsl(349, 71%, 52%), hsl(349, 70%, 56%)) border-box;
+  border: 25px solid transparent;
+  -moz-box-shadow: inset 0 8px 0 #dddddd;
+  -webkit-box-shadow: inset 0 8px 0 #dddddd;
+  box-shadow: inset 0 8px 0 #dddddd;
+  filter: drop-shadow(0 10px 0 hsl(349, 90%, 33%));
+}
+/* ****** */
+.paperRMKRSL {
+  width: 260px;
+  height: 260px;
+  position: relative;
+  padding: 15px 20px;
+  margin-left: 0px;
+  margin-top: 44px;
+}
+
+.paperRMKRSL {
+  background: linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(45deg, hsl(230, 89%, 62%), hsl(230, 89%, 65%)) border-box;
+  border: 25px solid transparent;
+  -moz-box-shadow: inset 0 8px 0 #dddddd;
+  -webkit-box-shadow: inset 0 8px 0 #dddddd;
+  box-shadow: inset 0 8px 0 #dddddd;
+  filter: drop-shadow(0 10px 0 hsl(230, 55%, 44%));
+}
+
+.paperRMKHPRSL {
+  width: 260px;
+  height: 260px;
+  position: relative;
+  padding: 15px 20px;
+  margin-left: 0px;
+  margin-top: 44px;
+}
+
+.paperRMKHPRSL {
+  background: linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(45deg, hsl(230, 89%, 62%), hsl(230, 89%, 65%)) border-box;
+  border: 25px solid transparent;
+  -moz-box-shadow: inset 0 8px 0 #dddddd;
+  -webkit-box-shadow: inset 0 8px 0 #dddddd;
+  box-shadow: inset 0 8px 0 #dddddd;
+  filter: drop-shadow(0 10px 0 hsl(230, 55%, 44%));
+}
+
+.scissorsRMKRSL {
+  width: 260px;
+  height: 260px;
+  position: relative;
+  padding: 15px 20px;
+  margin-left: 0px;
+  margin-top: 44px;
+}
+
+.scissorsRMKRSL {
+  background: linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(45deg, hsl(39, 89%, 49%), hsl(40, 84%, 53%)) border-box;
+  border: 25px solid transparent;
+  -moz-box-shadow: inset 0 8px 0 #dddddd;
+  -webkit-box-shadow: inset 0 8px 0 #dddddd;
+  box-shadow: inset 0 8px 0 #dddddd;
+  filter: drop-shadow(0 10px 0 hsl(40, 90%, 35%));
+}
+
+.rockRMKHPSL {
+  width: 260px;
+  height: 260px;
+  position: relative;
+  padding: 15px 20px;
+  margin-left: 0px;
+  margin-top: 44px;
+}
+
+.rockRMKHPSL {
+  background: linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(45deg, hsl(349, 71%, 52%), hsl(349, 70%, 56%)) border-box;
+  border: 25px solid transparent;
+  -moz-box-shadow: inset 0 8px 0 #dddddd;
+  -webkit-box-shadow: inset 0 8px 0 #dddddd;
+  box-shadow: inset 0 8px 0 #dddddd;
+  filter: drop-shadow(0 10px 0 hsl(349, 90%, 33%));
+}
+
+.youPickRSL {
+  margin-left: 140px;
+}
+
+.housePickRSL {
+  margin-left: -170px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.text-red {
+  color: hsl(349, 71%, 52%);
+}
+
+.start-100 {
+  left: 88% !important;
+  margin-top: 63px;
+}
+
+.pulse {
+  /* margin:100px;
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #cca92c;
+  cursor: pointer; */
+  box-shadow: 0 0 0 rgba(204, 169, 44, 0.4);
+  animation: pulse 2s infinite;
+}
+/* .pulse:hover {
+  animation: none;
+} */
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+  }
+  70% {
+    -webkit-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+  }
+}
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+  }
+  70% {
+    -moz-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+    box-shadow: 0 0 0 200px rgba(204, 169, 44, 0);
+  }
+  100% {
+    -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+  }
+}
+
+/* Responsive */
+@media only screen and (max-width: 1900px) {
+  .paper {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    padding: 15px 20px;
+    margin-left: 400px;
+    margin-top: -60px;
+  }
+}

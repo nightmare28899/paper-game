@@ -1,0 +1,19 @@
+<ng-template #content let-modal>
+  <div class="modal-header border-0">
+    <h4 class="modal-title text-uppercase text-bold" id="modal-basic-title">Rules</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <div class="mb-3 text-center">
+      <img src="../../assets/images/image-rules.svg" height="300px" alt="rules" *ngIf="changeMode == false">
+      <img src="../../assets/images/image-rules-bonus.svg" height="300px" alt="rules" *ngIf="changeMode == true">
+    </div>
+  </div>
+  <!-- <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+  </div> -->
+</ng-template>
+
+
+<button class="rounded-3 px-4 py-1 text-uppercase text-white position-absolute start-100 translate-middle buttonBg"
+  (click)="open(content)">Rules</button>

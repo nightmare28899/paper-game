@@ -1,0 +1,10 @@
+.font {
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+.fondoT {
+  background-image: url("../../assets/images/bg-triangle.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 60vh;
+}
