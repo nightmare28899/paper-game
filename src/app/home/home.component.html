@@ -16,7 +16,7 @@
   </header>
 
   <section class="mt-5 pt-5 text-center fondoT" *ngIf="header == true">
-    <div class="text-light"><input type="checkbox" class="" (click)="changeModeFunction()" mdbCheckbox> Switch</div>
+    <div class="text-light"><input type="checkbox" (click)="changeModeFunction()" mdbCheckbox> Switch</div>
     <div *ngFor="let element of content; index as i;" class="rounded-circle bg-white align-middle cursor-pointer"
       [ngClass]="{'paper': element.type == 'Paper','scissors': element.type === 'Scissors', 'rock': element.type === 'Rock'}"
       (click)="game(element.type)">
@@ -31,19 +31,19 @@
       <div class="col mx-auto" @flyInOut>
         <h5 class="text-uppercase text-light youPickRSL">You Picked</h5>
         <div class="rounded-circle bg-white align-middle"
-          [ngClass]="{'paperRMK': type === 'Paper','scissorsRMK': type === 'Scissors', 'rockRMK': type === 'Rock', 'pulse': stateG === 'You Win' && statusGame == true}">
+          [ngClass]="{'paperRMK': type === 'Paper','scissorsRMK': type === 'Scissors', 'rockRMK': type === 'Rock', 'pulse': stateG === 'You Win' && gameOver == true}">
           <img class="elementPositionRMK" src="{{ img }}" alt="{{ type }}">
         </div>
       </div>
 
       <div class="col mx-auto">
         <br>
-        <div class="mt-5 pt-5" *ngIf="gameOver == true" @myInsertRemoveTrigger2>
-          <h1 class="text-light text-uppercase"
-            *ngIf="stateG == 'You Win' || stateG == 'You Lose' || stateG == 'Tie'">{{ stateG }}</h1>
+        <div class="mt-5 pt-5" *ngIf="statusGame == true" @myInsertRemoveTrigger2>
+          <h1 class="text-light text-uppercase" *ngIf="stateG == 'You Win' || stateG == 'You Lose' || stateG == 'Tie'">
+            {{ stateG }}</h1>
           <button type="button" class="bg-light text-uppercase px-5 py-2 mt-1 rounded-3"
-            *ngIf="stateG == 'You Win' || stateG == 'You Lose' || stateG == 'Tie'"
-            (click)="reset()" [ngClass]="{'text-red': stateG == 'You Lose'}">Play Again</button>
+            *ngIf="stateG == 'You Win' || stateG == 'You Lose' || stateG == 'Tie'" (click)="reset()"
+            [ngClass]="{'text-red': stateG == 'You Lose'}">Play Again</button>
         </div>
       </div>
 
@@ -56,7 +56,7 @@
           Picked</h5>
         <div class="rounded-circle bg-white align-middle" @myInsertRemoveTrigger
           *ngIf="stateG === 'You Win' || stateG === 'Tie' || stateG === 'You Lose'"
-          [ngClass]="{'paperRMKHPRSL': theHousePick === 'Paper','scissorsRMKRSL': theHousePick === 'Scissors', 'rockRMKHPSL': theHousePick === 'Rock', 'pulse': stateG === 'You Lose' && statusGame == true}">
+          [ngClass]="{'paperRMKHPRSL': theHousePick === 'Paper','scissorsRMKRSL': theHousePick === 'Scissors', 'rockRMKHPSL': theHousePick === 'Rock', 'pulse': stateG === 'You Lose' && gameOver === true}">
           <img class="elementPositionRMK" src="{{ theHousePickImg }}" alt="{{ type }}">
         </div>
       </div>

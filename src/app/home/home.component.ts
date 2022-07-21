@@ -47,7 +47,6 @@ export class HomeComponent implements OnInit {
   public img: string = '';
   public theHousePickImg: string = '';
   public theHousePick: string = '';
-  public status: boolean = false;
   public score: number = 0;
   public stateG: string = '';
   public stateHP: string = '';
@@ -76,46 +75,45 @@ export class HomeComponent implements OnInit {
       Math.floor(Math.random() * 3)
     );
     this.header = false;
-    /* console.log(arrRandom[0]); */
+    /* console.log(arrRandom); */
     this.type = type;
     /* console.log('this type',this.type); */
     const position = this.content.findIndex((item) => item.type === type);
     this.img = this.content[position].image;
     if (this.content[arrRandom[0]].type === type) {
       setTimeout(() => {
-        this.result = this.stateG = 'Tie';
+        this.stateG = 'Tie';
       }, 3000);
     } else if (this.type === "Paper" && this.content[arrRandom[0]].type === 'Rock' || this.type === 'Scissors' && this.content[arrRandom[0]].type === 'Paper' || this.type === 'Rock' && this.content[arrRandom[0]].type === 'Scissors') {
       setTimeout(() => {
-        this.result = this.stateG = 'You Win';
+        this.stateG = 'You Win';
         this.score++;
         localStorage.setItem('score', JSON.stringify(this.score));
       }, 3000);
     } else {
       setTimeout(() => {
-        this.result = this.stateG = 'You Lose';
+        this.stateG = 'You Lose';
       }, 3000);
     }
 
     setTimeout(() => {
       this.theHousePick = this.content[arrRandom[0]].type;
       this.theHousePickImg = this.content[arrRandom[0]].image;
-      this.stateG = this.result;
-      this.status = false;
+      this.stateG;
     }, 3000);
     setTimeout(() => {
       this.statusGame = true;
-    }, 4000);/* 
+    }, 4000);
     setTimeout(() => {
       this.gameOver = true;
-    }, 4500); */
-    
+    }, 6000);
+
   }
 
   public reset() {
     this.header = true;
     this.statusGame = false;
-    this.status = false;
+    this.gameOver = false;
     this.result = '';
     this.stateG = '';
     this.stateHP = '';
