@@ -1,17 +1,22 @@
 <div class="container">
   <header class="mt-5">
-    <div class="mx-auto rounded-4 p-4 fs-4" style="
+    <div
+      class="mx-auto rounded-4 p-4 fs-4"
+      style="
         width: 700px;
         height: 136px;
         border: 2px solid hsl(217, 16%, 45%);
         border-radius: 2px;
-      ">
+      "
+    >
       <div class="d-flex justify-content-between">
         <div class="font">
           <img src="../../assets/images/logo.svg" height="90px;" alt="logo" />
         </div>
-        <div class="bg-white rounded text-center font shadow bg-body rounded"
-          style="height: 85px; padding: 12px 33px 0px 33px">
+        <div
+          class="bg-white rounded text-center font shadow bg-body rounded"
+          style="height: 85px; padding: 12px 33px 0px 33px"
+        >
           <p class="text-uppercase lh-1 score">
             S c o r e <br />
             <b class="number" style="font-size: 3.2rem">{{ score }}</b>
@@ -21,70 +26,146 @@
     </div>
   </header>
 
-  <section class="mt-5 pt-5 text-center fondoT" *ngIf="header == true">
-    <div *ngFor="let element of content" class="rounded-circle bg-white align-middle cursor-pointer" [ngClass]="{
-            paper: element.type == 'Paper',
-            scissors: element.type === 'Scissors',
-            rock: element.type === 'Rock'
-          }" (click)="game(element.type)">
-      <img [ngClass]="{
-              paperPosition: element.type == 'Paper',
-              scissorsPosition: element.type === 'Scissors',
-              rockPosition: element.type === 'Rock'
-            }" src="{{ element.image }}" alt="element.type" />
-    </div>
-  </section>
+  <div *ngIf="!changeMode" @myInsertRemoveTrigger>
+    <section class="mt-5 pt-5 text-center fondoT" *ngIf="header == true">
+      <div
+        *ngFor="let element of content"
+        class="rounded-circle bg-white align-middle cursor-pointer"
+        [ngClass]="{
+          paper: element.type == 'Paper',
+          scissors: element.type === 'Scissors',
+          rock: element.type === 'Rock',
+          hideLizard: element.type === 'Lizard',
+          hideSpock: element.type === 'Spock'
+        }"
+        (click)="game(element.type)"
+      >
+        <img
+          [ngClass]="{
+            paperPosition: element.type == 'Paper',
+            scissorsPosition: element.type === 'Scissors',
+            rockPosition: element.type === 'Rock'
+          }"
+          src="{{ element.image }}"
+          alt="element.type"
+        />
+      </div>
+    </section>
 
-  <section class="mt-5 text-center" *ngIf="header == false">
-    <div class="row">
-      <div class="col mx-auto" @flyInOut>
-        <h5 class="text-uppercase text-light youPickRSL">You Picked</h5>
-        <div class="rounded-circle bg-white align-middle" [ngClass]="{
-            paperRMK: type === 'Paper',
-            scissorsRMK: type === 'Scissors',
-            rockRMK: type === 'Rock',
-            pulse: stateG === 'You Win' && gameOver == true
-          }">
-          <img class="elementPositionRMK" src="{{ img }}" alt="{{ type }}" />
+    <section class="mt-5 text-center" *ngIf="header == false">
+      <div class="row">
+        <div class="col mx-auto" @flyInOut>
+          <h5 class="text-uppercase text-light youPickRSL">You Picked</h5>
+          <div
+            class="rounded-circle bg-white align-middle"
+            [ngClass]="{
+              paperRMK: type === 'Paper',
+              scissorsRMK: type === 'Scissors',
+              rockRMK: type === 'Rock',
+              pulse: stateG === 'You Win' && gameOver == true
+            }"
+          >
+            <img class="elementPositionRMK" src="{{ img }}" alt="{{ type }}" />
+          </div>
+        </div>
+
+        <div class="col mx-auto">
+          <br />
+          <div
+            class="mt-5 pt-5"
+            *ngIf="statusGame == true"
+            @myInsertRemoveTrigger2
+          >
+            <h1
+              class="text-light text-uppercase"
+              *ngIf="
+                stateG == 'You Win' || stateG == 'You Lose' || stateG == 'Tie'
+              "
+            >
+              {{ stateG }}
+            </h1>
+            <button
+              type="button"
+              class="bg-light text-uppercase px-5 py-2 mt-1 rounded-3"
+              *ngIf="
+                stateG == 'You Win' || stateG == 'You Lose' || stateG == 'Tie'
+              "
+              (click)="reset()"
+              [ngClass]="{ 'text-red': stateG == 'You Lose' }"
+            >
+              Play Again
+            </button>
+          </div>
+        </div>
+
+        <div class="col mx-auto" @flyInOutR>
+          <div
+            class="rounded-circle align-middle shadowMachine"
+            *ngIf="theHousePick === ''"
+          ></div>
+          <h5
+            class="text-uppercase text-light housePickRSL"
+            @myInsertRemoveTrigger
+            *ngIf="
+              stateG === 'You Win' || stateG === 'Tie' || stateG === 'You Lose'
+            "
+          >
+            The House Picked
+          </h5>
+          <div
+            class="rounded-circle bg-white align-middle"
+            @myInsertRemoveTrigger
+            *ngIf="
+              stateG === 'You Win' || stateG === 'Tie' || stateG === 'You Lose'
+            "
+            [ngClass]="{
+              paperRMKHPRSL: theHousePick === 'Paper',
+              scissorsRMKRSL: theHousePick === 'Scissors',
+              rockRMKHPSL: theHousePick === 'Rock',
+              pulse: stateG === 'You Lose' && gameOver === true
+            }"
+          >
+            <img
+              class="elementPositionRMK"
+              src="{{ theHousePickImg }}"
+              alt="{{ type }}"
+            />
+          </div>
         </div>
       </div>
+    </section>
+  </div>
 
-      <div class="col mx-auto">
-        <br />
-        <div class="mt-5 pt-5" *ngIf="statusGame == true" @myInsertRemoveTrigger2>
-          <h1 class="text-light text-uppercase" *ngIf="
-              stateG == 'You Win' || stateG == 'You Lose' || stateG == 'Tie'
-            ">
-            {{ stateG }}
-          </h1>
-          <button type="button" class="bg-light text-uppercase px-5 py-2 mt-1 rounded-3" *ngIf="
-              stateG == 'You Win' || stateG == 'You Lose' || stateG == 'Tie'
-            " (click)="reset()" [ngClass]="{ 'text-red': stateG == 'You Lose' }">
-            Play Again
-          </button>
-        </div>
+  <div *ngIf="changeMode" @myInsertRemoveTrigger>
+    <section class="mt-5 pt-5 text-center fondoP">
+      <div
+        *ngFor="let element of content"
+        class="rounded-circle bg-white align-middle cursor-pointer"
+        [ngClass]="{
+          paperPenta: element.type == 'Paper',
+          scissorsPenta: element.type === 'Scissors',
+          rockPenta: element.type === 'Rock',
+          spockPenta: element.type === 'Spock',
+          lizardPenta: element.type === 'Lizard'
+        }"
+        (click)="game(element.type)"
+      >
+        <img
+          [ngClass]="{
+            paperPentaPosition: element.type == 'Paper',
+            scissorsPentaPosition: element.type === 'Scissors',
+            rockPentaPosition: element.type === 'Rock',
+            spockPentaPosition: element.type === 'Spock',
+            lizardPentaPosition: element.type === 'Lizard'
+          }"
+          src="{{ element.image }}"
+          alt="element.type"
+        />
       </div>
+    </section>
+    
+  </div>
 
-      <div class="col mx-auto" @flyInOutR>
-        <div class="rounded-circle align-middle shadowMachine" *ngIf="theHousePick === ''"></div>
-        <h5 class="text-uppercase text-light housePickRSL" @myInsertRemoveTrigger *ngIf="
-            stateG === 'You Win' || stateG === 'Tie' || stateG === 'You Lose'
-          ">
-          The House Picked
-        </h5>
-        <div class="rounded-circle bg-white align-middle" @myInsertRemoveTrigger *ngIf="
-            stateG === 'You Win' || stateG === 'Tie' || stateG === 'You Lose'
-          " [ngClass]="{
-            paperRMKHPRSL: theHousePick === 'Paper',
-            scissorsRMKRSL: theHousePick === 'Scissors',
-            rockRMKHPSL: theHousePick === 'Rock',
-            pulse: stateG === 'You Lose' && gameOver === true
-          }">
-          <img class="elementPositionRMK" src="{{ theHousePickImg }}" alt="{{ type }}" />
-        </div>
-      </div>
-    </div>
-  </section>
 </div>
 
 <app-modal-options></app-modal-options>

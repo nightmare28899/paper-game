@@ -11,7 +11,4 @@ export class BackendApiService {
   changeMode = new BehaviorSubject<boolean>(false);
   currentChangeMode = this.changeMode.asObservable();
 
-  enablePC = new BehaviorSubject<boolean>(false);
-  currentEnablePC = this.enablePC.asObservable();
-
 }

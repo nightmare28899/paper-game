@@ -27,7 +27,6 @@ import {
 export class HomeComponent implements OnInit {
   constructor(private api: BackendApiService) {}
 
-  public data: Array<any> = [];
   public content: Array<any> = [
     {
       type: 'Paper',
@@ -41,6 +40,14 @@ export class HomeComponent implements OnInit {
       type: 'Rock',
       image: '../../assets/images/icon-rock.svg',
     },
+    {
+      type: 'Lizard',
+      image: '../../assets/images/icon-lizard.svg',
+    },
+    {
+      type: 'Spock',
+      image: '../../assets/images/icon-spock.svg',
+    }
   ];
   public header: boolean = true;
   public type: string = '';
@@ -53,15 +60,14 @@ export class HomeComponent implements OnInit {
   public statusGame: boolean = false;
   public result: string = '';
   public gameOver: boolean = false;
-  public player2: string = '';
-  public enablePC: boolean = false;
+  public changeMode: boolean = false;
 
   ngOnInit(): void {
     if (localStorage.getItem('score') !== null) {
       this.score = Number(localStorage.getItem('score'));
     }
-    this.api.currentEnablePC.subscribe((data) => {
-      this.enablePC = data;
+    this.api.currentChangeMode.subscribe((data) => {
+      this.changeMode = data;
     });
   }
 

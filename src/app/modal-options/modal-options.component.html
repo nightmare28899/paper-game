@@ -1,15 +1,9 @@
 <ng-template #content let-modal>
   <div class="modal-header border-0">
-    <h4 class="modal-title text-uppercase text-bold" id="modal-basic-title">Rules</h4>
+    <h4 class="modal-title text-uppercase text-bold" id="modal-basic-title">Game Mode</h4>
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body">
-    <p class="fs-4 text-bold">Modo de juego:</p>
-    <p class="fs-6">Do you want to play with the computer?</p>
-    <label class="switch">
-      <input type="checkbox" [checked]="enablePC === true" (click)="enablePCFunction()" mdbCheckbox />
-      <span class="slider round"></span>
-    </label>
     <p class="fs-6 mt-2">change mode</p>
     <label class="switch">
       <input type="checkbox" [checked]="changeMode === true" (click)="changeModeFunction()" mdbCheckbox />

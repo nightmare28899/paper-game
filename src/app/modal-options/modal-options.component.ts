@@ -46,9 +46,4 @@ export class ModalOptionsComponent implements OnInit {
     this.api.changeMode.next(this.changeMode);
   }
 
-  public enablePCFunction() {
-    this.enablePC = !this.enablePC;
-    this.api.enablePC.next(this.enablePC);
-  }
-
 }
