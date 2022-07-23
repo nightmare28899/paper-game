@@ -61,6 +61,7 @@ export class HomeComponent implements OnInit {
   public result: string = '';
   public gameOver: boolean = false;
   public changeMode: boolean = false;
+  private numberMode: number = 0;
 
   ngOnInit(): void {
     if (localStorage.getItem('score') !== null) {
@@ -72,11 +73,17 @@ export class HomeComponent implements OnInit {
   }
 
   public game(type: string) {
+    if (this.changeMode) {
+      this.numberMode = 5;
+    } else {
+      this.numberMode = 3;
+    }
+
     const arrRandom = Array.from({ length: 1 }, () =>
-      Math.floor(Math.random() * 3)
+      Math.floor(Math.random() * this.numberMode)
     );
     this.header = false;
-    /* console.log(arrRandom); */
+    console.log(arrRandom);
     this.type = type;
     /* console.log('this type',this.type); */
     const position = this.content.findIndex((item) => item.type === type);
@@ -85,7 +92,7 @@ export class HomeComponent implements OnInit {
       setTimeout(() => {
         this.stateG = 'Tie';
       }, 3000);
-    } else if (this.type === "Paper" && this.content[arrRandom[0]].type === 'Rock' || this.type === 'Scissors' && this.content[arrRandom[0]].type === 'Paper' || this.type === 'Rock' && this.content[arrRandom[0]].type === 'Scissors') {
+    } else if (this.type === "Paper" && this.content[arrRandom[0]].type === 'Rock' || this.type === 'Scissors' && this.content[arrRandom[0]].type === 'Paper' || this.type === 'Rock' && this.content[arrRandom[0]].type === 'Scissors' || this.type === 'Lizard' && this.content[arrRandom[0]].type === 'Spock' || this.type === 'Spock' && this.content[arrRandom[0]].type === 'Scissors' || this.type === 'Rock' && this.content[arrRandom[0]].type === 'Lizard' || this.type === 'Lizard' && this.content[arrRandom[0]].type === 'Paper' || this.type === 'Spock' && this.content[arrRandom[0]].type === 'Rock' || this.type === 'Scissors' && this.content[arrRandom[0]].type === 'Lizard' || this.type === 'Paper' && this.content[arrRandom[0]].type === 'Spock') {
       setTimeout(() => {
         this.stateG = 'You Win';
         this.score++;
