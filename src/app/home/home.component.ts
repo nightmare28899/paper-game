@@ -52,22 +52,17 @@ export class HomeComponent implements OnInit {
   public stateHP: string = '';
   public statusGame: boolean = false;
   public result: string = '';
-  public changeMode: boolean = false;
   public gameOver: boolean = false;
+  public player2: string = '';
+  public enablePC: boolean = false;
 
   ngOnInit(): void {
-    this.api.currentVariableTest.subscribe((res) => {
-      console.log(res);
-    });
-    this.data.push({
-      name: 'test',
-      value: 'test',
-    });
-    this.api.variableTest.next(this.data);
-
     if (localStorage.getItem('score') !== null) {
       this.score = Number(localStorage.getItem('score'));
     }
+    this.api.currentEnablePC.subscribe((data) => {
+      this.enablePC = data;
+    });
   }
 
   public game(type: string) {
@@ -123,8 +118,5 @@ export class HomeComponent implements OnInit {
     this.img = '';
   }
 
-  public changeModeFunction() {
-    this.changeMode = !this.changeMode;
-    this.api.changeMode.next(this.changeMode);
-  }
+
 }

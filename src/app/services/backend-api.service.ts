@@ -8,15 +8,10 @@ export class BackendApiService {
 
   constructor() { }
 
-  variableTest = new BehaviorSubject<Array<any>>([]);
-  currentVariableTest = this.variableTest.asObservable();
-
   changeMode = new BehaviorSubject<boolean>(false);
   currentChangeMode = this.changeMode.asObservable();
 
-  test() {
-    let variable = '';
-    /* this.variableTest.next('test'); */
-    return this.currentVariableTest;
-  }
+  enablePC = new BehaviorSubject<boolean>(false);
+  currentEnablePC = this.enablePC.asObservable();
+
 }

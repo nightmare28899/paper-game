@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ModalRulesComponent } from './modal-rules/modal-rules.component';
+import { ModalOptionsComponent } from './modal-options/modal-options.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ModalRulesComponent
+    ModalRulesComponent,
+    ModalOptionsComponent
   ],
   imports: [
     BrowserModule,

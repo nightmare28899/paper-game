@@ -1,23 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { BackendApiService } from '../services/backend-api.service';
 
 @Component({
-  selector: 'app-modal-rules',
-  templateUrl: './modal-rules.component.html',
-  styleUrls: ['./modal-rules.component.css']
+  selector: 'app-modal-options',
+  templateUrl: './modal-options.component.html',
+  styleUrls: ['./modal-options.component.css']
 })
-export class ModalRulesComponent implements OnInit {
+export class ModalOptionsComponent implements OnInit {
 
   public closeResult = '';
   public closeResultResponsiveModal = '';
-  public changeMode: any;
+  public changeMode: boolean = false;
+  public enablePC: boolean = false;
 
   constructor(private modalService: NgbModal, private api: BackendApiService) { }
 
   ngOnInit(): void {
     this.api.currentChangeMode.subscribe((res) => {
       this.changeMode = res;
+      console.log(this.changeMode);
     });
   }
 
@@ -39,7 +41,14 @@ export class ModalRulesComponent implements OnInit {
     }
   }
 
-  openResponsiveModal(modalResponsive: any) {
-    this.modalService.open(modalResponsive, {fullscreen: true});
+  public changeModeFunction() {
+    this.changeMode = !this.changeMode;
+    this.api.changeMode.next(this.changeMode);
   }
+
+  public enablePCFunction() {
+    this.enablePC = !this.enablePC;
+    this.api.enablePC.next(this.enablePC);
+  }
+
 }
