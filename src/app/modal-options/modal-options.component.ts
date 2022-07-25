@@ -19,7 +19,6 @@ export class ModalOptionsComponent implements OnInit {
   ngOnInit(): void {
     this.api.currentChangeMode.subscribe((res) => {
       this.changeMode = res;
-      console.log(this.changeMode);
     });
   }
 

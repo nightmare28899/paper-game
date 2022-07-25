@@ -83,9 +83,7 @@ export class HomeComponent implements OnInit {
       Math.floor(Math.random() * this.numberMode)
     );
     this.header = false;
-    console.log(arrRandom);
     this.type = type;
-    /* console.log('this type',this.type); */
     const position = this.content.findIndex((item) => item.type === type);
     this.img = this.content[position].image;
     if (this.content[arrRandom[0]].type === type) {
