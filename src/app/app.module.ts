@@ -13,7 +13,7 @@ import { ModalOptionsComponent } from './modal-options/modal-options.component';
     AppComponent,
     HomeComponent,
     ModalRulesComponent,
-    ModalOptionsComponent
+    ModalOptionsComponent,
   ],
   imports: [
     BrowserModule,

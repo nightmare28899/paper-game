@@ -164,56 +164,64 @@
 }
 
 @media screen and (max-width: 460px) {
+  .fondoT {
+    background-image: url("../../assets/images/bg-triangle.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 47vh;
+    width: 348px;
+  }
+
   .header {
-    width: 436px;
+    width: 348px;
     height: 136px;
     border: 2px solid hsl(217, 16%, 45%);
     border-radius: 2px;
   }
 
   .paper {
-    width: 150px;
-    height: 150px;
+    width: 125px;
+    height: 125px;
     position: relative;
     padding: 15px 20px;
-    margin-left: 20px;
-    margin-top: -45px;
+    margin-left: 2px;
+    margin-top: -37px;
   }
 
   .scissors {
-    width: 150px;
-    height: 150px;
+    width: 125px;
+    height: 125px;
     position: relative;
     padding: 15px 20px;
-    margin-left: 266px;
-    margin-top: -155px;
+    margin-left: 222px;
+    margin-top: -124px;
   }
 
   .rock {
-    width: 150px;
-    height: 150px;
+    width: 125px;
+    height: 125px;
     position: relative;
     padding: 15px 20px;
-    margin-left: 146px;
+    margin-left: 112px;
     margin-top: 57px;
   }
 
   .paperPosition {
-    margin-top: 8px;
-    width: 50px;
-    height: 63px;
+    margin-top: 2px;
+    width: 35px;
+    height: 45px;
   }
 
   .scissorsPosition {
-    margin-top: 7px;
-    width: 50px;
-    height: 63px;
+    margin-top: 2px;
+    width: 35px;
+    height: 45px;
   }
 
   .rockPosition {
-    margin-top: 7px;
-    width: 50px;
-    height: 63px;
+    margin-top: 2px;
+    width: 35px;
+    height: 45px;
   }
 
   .start-100 {
@@ -221,7 +229,14 @@
   }
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 375px) {
+  .header {
+    width: 334px;
+    height: 136px;
+    border: 2px solid hsl(217, 16%, 45%);
+    border-radius: 2px;
+  }
+
   .fondoT {
     background-image: url("../../assets/images/bg-triangle.svg");
     background-repeat: no-repeat;
