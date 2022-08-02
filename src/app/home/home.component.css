@@ -143,6 +143,22 @@
   visibility: hidden;
 }
 
+@media screen and (max-width: 2410px) {
+  .fondoT {
+    background-image: url("../../assets/images/bg-triangle.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 60vh;
+  }
+
+  .header {
+    width: 700px;
+    height: 136px;
+    border: 2px solid hsl(217, 16%, 45%);
+    border-radius: 2px;
+  }
+}
+
 @media screen and (max-width: 1900px) {
   .fondoT {
     background-image: url("../../assets/images/bg-triangle.svg");
