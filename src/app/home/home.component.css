@@ -2,13 +2,6 @@
   font-family: "Barlow Semi Condensed", sans-serif;
 }
 
-.fondoT {
-  background-image: url("../../assets/images/bg-triangle.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 60vh;
-}
-
 .fondoP {
   background-image: url("../../assets/images/bg-pentagon.svg");
   background-repeat: no-repeat;
@@ -150,6 +143,122 @@
   visibility: hidden;
 }
 
-@media only screen and (max-width: 375px) {
-  
-}                             
+@media screen and (max-width: 1900px) {
+  .fondoT {
+    background-image: url("../../assets/images/bg-triangle.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 60vh;
+  }
+
+  .header {
+    width: 700px;
+    height: 136px;
+    border: 2px solid hsl(217, 16%, 45%);
+    border-radius: 2px;
+  }
+
+  .start-100 {
+    left: 94% !important;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .header {
+    width: 436px;
+    height: 136px;
+    border: 2px solid hsl(217, 16%, 45%);
+    border-radius: 2px;
+  }
+
+  .paper {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    padding: 15px 20px;
+    margin-left: 20px;
+    margin-top: -45px;
+  }
+
+  .scissors {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    padding: 15px 20px;
+    margin-left: 266px;
+    margin-top: -155px;
+  }
+
+  .rock {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    padding: 15px 20px;
+    margin-left: 146px;
+    margin-top: 57px;
+  }
+
+  .paperPosition {
+    margin-top: 8px;
+    width: 50px;
+    height: 63px;
+  }
+
+  .scissorsPosition {
+    margin-top: 7px;
+    width: 50px;
+    height: 63px;
+  }
+
+  .rockPosition {
+    margin-top: 7px;
+    width: 50px;
+    height: 63px;
+  }
+
+  .start-100 {
+    left: 50% !important;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .fondoT {
+    background-image: url("../../assets/images/bg-triangle.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 98vh;
+    width: 682px;
+  }
+
+  .paper {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    padding: 15px 20px;
+    margin-left: 78px;
+    margin-top: 32px;
+  }
+
+  .scissors {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    padding: 15px 20px;
+    margin-left: 409px;
+    margin-top: -200px;
+  }
+
+  .rock {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    padding: 15px 20px;
+    margin-left: 244px;
+    margin-top: 42px;
+  }
+
+  .start-100 {
+    /* left: 88% !important; */
+    margin-top: 2px;
+  }
+}

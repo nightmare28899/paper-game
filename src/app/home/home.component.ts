@@ -49,6 +49,7 @@ export class HomeComponent implements OnInit {
       image: '../../assets/images/icon-spock.svg',
     }
   ];
+
   public header: boolean = true;
   public type: string = '';
   public img: string = '';
