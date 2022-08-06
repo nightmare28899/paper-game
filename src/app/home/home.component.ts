@@ -74,11 +74,13 @@ export class HomeComponent implements OnInit {
   }
 
   public game(type: string) {
-    if (this.changeMode) {
-      this.numberMode = 5;
-    } else {
-      this.numberMode = 3;
-    }
+    let paper = "Paper";
+    let scissors = "Scissors";
+    let rock = "Rock";
+    let lizard = "Lizard";
+    let spock = "Spock";
+
+    this.changeMode ? this.numberMode = 5 : this.numberMode = 3;
 
     const arrRandom = Array.from({ length: 1 }, () =>
       Math.floor(Math.random() * this.numberMode)
@@ -91,7 +93,7 @@ export class HomeComponent implements OnInit {
       setTimeout(() => {
         this.stateG = 'Tie';
       }, 3000);
-    } else if (this.type === "Paper" && this.content[arrRandom[0]].type === 'Rock' || this.type === 'Scissors' && this.content[arrRandom[0]].type === 'Paper' || this.type === 'Rock' && this.content[arrRandom[0]].type === 'Scissors' || this.type === 'Lizard' && this.content[arrRandom[0]].type === 'Spock' || this.type === 'Spock' && this.content[arrRandom[0]].type === 'Scissors' || this.type === 'Rock' && this.content[arrRandom[0]].type === 'Lizard' || this.type === 'Lizard' && this.content[arrRandom[0]].type === 'Paper' || this.type === 'Spock' && this.content[arrRandom[0]].type === 'Rock' || this.type === 'Scissors' && this.content[arrRandom[0]].type === 'Lizard' || this.type === 'Paper' && this.content[arrRandom[0]].type === 'Spock') {
+    } else if (this.type === paper && this.content[arrRandom[0]].type === rock || this.type === scissors && this.content[arrRandom[0]].type === paper || this.type === rock && this.content[arrRandom[0]].type === scissors || this.type === lizard && this.content[arrRandom[0]].type === spock || this.type === spock && this.content[arrRandom[0]].type === scissors || this.type === rock && this.content[arrRandom[0]].type === lizard || this.type === lizard && this.content[arrRandom[0]].type === paper || this.type === spock && this.content[arrRandom[0]].type === rock || this.type === scissors && this.content[arrRandom[0]].type === lizard || this.type === paper && this.content[arrRandom[0]].type === spock) {
       setTimeout(() => {
         this.stateG = 'You Win';
         this.score++;
