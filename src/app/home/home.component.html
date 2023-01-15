@@ -3,7 +3,8 @@
     <div class="mx-auto rounded-4 p-4 fs-4 header">
       <div class="d-flex justify-content-between">
         <div class="font">
-          <img src="{{ !changeMode ? '../../assets/images/logo.svg'  : '../../assets/images/logo-bonus.svg' }}" height="90px;" alt="logo" />
+          <img src="{{ !changeMode ? '../../assets/images/logo.svg'  : '../../assets/images/logo-bonus.svg' }}"
+            height="90px;" alt="logo" />
         </div>
         <div class="bg-white rounded text-center font shadow bg-body rounded"
           style="height: 85px; padding: 12px 33px 0px 33px">
@@ -35,7 +36,7 @@
   </div>
 
   <div *ngIf="changeMode" @myInsertRemoveTrigger>
-    <section class="mt-5 pt-5 text-center fondoP" *ngIf="header == true">
+    <section class="mt-5 pt-4 text-center fondoP" *ngIf="header == true">
       <div *ngFor="let element of content" class="rounded-circle bg-white align-middle cursor-pointer" [ngClass]="{
           paperPenta: element.type == 'Paper',
           scissorsPenta: element.type === 'Scissors',
@@ -119,13 +120,11 @@
             rockRMKHPSL: theHousePick === 'Rock',
             pulse: stateG === 'You Lose' && gameOver === true
           }">
-          <img class="elementPositionRMK" src="{{ theHousePickImg }}" alt="{{ type }}" />
-        </div>
+            <img class="elementPositionRMK" src="{{ theHousePickImg }}" alt="{{ type }}" />
+          </div>
         </div>
       </div>
     </div>
   </section>
 
 </div>
-
-

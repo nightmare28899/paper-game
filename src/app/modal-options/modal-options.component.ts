@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { BackendApiService } from '../services/backend-api.service';
 
 @Component({
