@@ -151,6 +151,13 @@
     height: 60vh;
   }
 
+  .fondoP {
+    background-image: url("../../assets/images/bg-pentagon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 56vh;
+  }
+
   .header {
     width: 700px;
     height: 136px;
@@ -165,6 +172,13 @@
     background-repeat: no-repeat;
     background-position: center;
     height: 60vh;
+  }
+
+  .fondoP {
+    background-image: url("../../assets/images/bg-pentagon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 56vh;
   }
 
   .header {
