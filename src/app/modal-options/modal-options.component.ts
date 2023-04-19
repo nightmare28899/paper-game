@@ -42,6 +42,8 @@ export class ModalOptionsComponent implements OnInit {
 
   public changeModeFunction() {
     this.changeMode = !this.changeMode;
+    this.modalService.dismissAll();
+
     this.api.changeMode.next(this.changeMode);
   }
 

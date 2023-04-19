@@ -16,14 +16,14 @@ export let flyInOut = trigger('flyInOut', [
   transition('void => *', [
     style({ transform: 'translateX(50%)' }),
     animate('1200ms 4150ms'),
-  ])
+  ]),
 ]);
 
 export let flyInOutR = trigger('flyInOutR', [
   transition('void => *', [
     style({ transform: 'translateX(-50%)' }),
     animate('1200ms 4150ms'),
-  ])
+  ]),
 ]);
 
 export let myInsertRemoveTrigger = trigger('myInsertRemoveTrigger', [

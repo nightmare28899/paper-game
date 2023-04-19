@@ -47,21 +47,21 @@ export class HomeComponent implements OnInit {
     {
       type: 'Spock',
       image: '../../assets/images/icon-spock.svg',
-    }
+    },
   ];
 
-  public header: boolean = true;
-  public type: string = '';
-  public img: string = '';
-  public theHousePickImg: string = '';
-  public theHousePick: string = '';
-  public score: number = 0;
-  public stateG: string = '';
-  public stateHP: string = '';
-  public statusGame: boolean = false;
-  public result: string = '';
-  public gameOver: boolean = false;
-  public changeMode: boolean = false;
+  header: boolean = true;
+  type: string = '';
+  img: string = '';
+  theHousePickImg: string = '';
+  theHousePick: string = '';
+  score: number = 0;
+  stateG: string = '';
+  stateHP: string = '';
+  statusGame: boolean = false;
+  result: string = '';
+  gameOver: boolean = false;
+  changeMode: boolean = false;
   private numberMode: number = 0;
 
   ngOnInit(): void {
@@ -74,26 +74,39 @@ export class HomeComponent implements OnInit {
   }
 
   public game(type: string) {
-    let paper = "Paper";
-    let scissors = "Scissors";
-    let rock = "Rock";
-    let lizard = "Lizard";
-    let spock = "Spock";
+    let paper = 'Paper';
+    let scissors = 'Scissors';
+    let rock = 'Rock';
+    let lizard = 'Lizard';
+    let spock = 'Spock';
 
-    this.changeMode ? this.numberMode = 5 : this.numberMode = 3;
+    this.changeMode ? (this.numberMode = 5) : (this.numberMode = 3);
 
     const arrRandom = Array.from({ length: 1 }, () =>
       Math.floor(Math.random() * this.numberMode)
     );
+
     this.header = false;
     this.type = type;
     const position = this.content.findIndex((item) => item.type === type);
     this.img = this.content[position].image;
+
     if (this.content[arrRandom[0]].type === type) {
       setTimeout(() => {
         this.stateG = 'Tie';
       }, 3000);
-    } else if (this.type === paper && this.content[arrRandom[0]].type === rock || this.type === scissors && this.content[arrRandom[0]].type === paper || this.type === rock && this.content[arrRandom[0]].type === scissors || this.type === lizard && this.content[arrRandom[0]].type === spock || this.type === spock && this.content[arrRandom[0]].type === scissors || this.type === rock && this.content[arrRandom[0]].type === lizard || this.type === lizard && this.content[arrRandom[0]].type === paper || this.type === spock && this.content[arrRandom[0]].type === rock || this.type === scissors && this.content[arrRandom[0]].type === lizard || this.type === paper && this.content[arrRandom[0]].type === spock) {
+    } else if (
+      (this.type === paper && this.content[arrRandom[0]].type === rock) ||
+      (this.type === scissors && this.content[arrRandom[0]].type === paper) ||
+      (this.type === rock && this.content[arrRandom[0]].type === scissors) ||
+      (this.type === lizard && this.content[arrRandom[0]].type === spock) ||
+      (this.type === spock && this.content[arrRandom[0]].type === scissors) ||
+      (this.type === rock && this.content[arrRandom[0]].type === lizard) ||
+      (this.type === lizard && this.content[arrRandom[0]].type === paper) ||
+      (this.type === spock && this.content[arrRandom[0]].type === rock) ||
+      (this.type === scissors && this.content[arrRandom[0]].type === lizard) ||
+      (this.type === paper && this.content[arrRandom[0]].type === spock)
+    ) {
       setTimeout(() => {
         this.stateG = 'You Win';
         this.score++;
@@ -110,13 +123,14 @@ export class HomeComponent implements OnInit {
       this.theHousePickImg = this.content[arrRandom[0]].image;
       this.stateG;
     }, 3000);
+
     setTimeout(() => {
       this.statusGame = true;
     }, 4000);
+    
     setTimeout(() => {
       this.gameOver = true;
     }, 6000);
-
   }
 
   public reset() {
@@ -131,6 +145,4 @@ export class HomeComponent implements OnInit {
     this.type = '';
     this.img = '';
   }
-
-
 }

@@ -4,15 +4,19 @@
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body">
-    <p class="fs-6 mt-2">change mode</p>
-    <label class="switch">
-      <input type="checkbox" [checked]="changeMode === true" (click)="changeModeFunction()" mdbCheckbox />
-      <span class="slider round"></span>
-    </label>
+    <div class="mt-2 ml-3">
+      <p class="fs-6">Change mode {{ changeMode === true ? "3" : "5" }}</p>
+      <label class="switch">
+        <input type="checkbox" [checked]="changeMode === true" (click)="changeModeFunction()" mdbCheckbox />
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <div class="mb-3 text-center mt-3">
+      <h3 class="mb-5">Rules Game Mode {{ changeMode === true ? "5" : "3" }}</h3>
+      <img src="{{ changeMode ? '../../assets/images/image-rules-bonus.svg' : '../../assets/images/image-rules.svg' }}"
+        height="300px" alt="rules">
+    </div>
   </div>
-  <!-- <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-  </div> -->
 </ng-template>
 
 
