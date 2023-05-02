@@ -65,7 +65,7 @@ export class HomeComponent implements OnInit {
   private numberMode: number = 0;
 
   ngOnInit(): void {
-    if (localStorage.getItem('score') !== null) {
+    if (localStorage.getItem('score')) {
       this.score = Number(localStorage.getItem('score'));
     }
     this.api.currentChangeMode.subscribe((data) => {
@@ -74,11 +74,13 @@ export class HomeComponent implements OnInit {
   }
 
   public game(type: string) {
-    let paper = 'Paper';
-    let scissors = 'Scissors';
-    let rock = 'Rock';
-    let lizard = 'Lizard';
-    let spock = 'Spock';
+    const dictionary = {
+      Paper: 'Paper',
+      Scissors: 'Scissors',
+      Rock: 'Rock',
+      Lizard: 'Lizard',
+      Spock: 'Spock',
+    };
 
     this.changeMode ? (this.numberMode = 5) : (this.numberMode = 3);
 
@@ -96,16 +98,26 @@ export class HomeComponent implements OnInit {
         this.stateG = 'Tie';
       }, 3000);
     } else if (
-      (this.type === paper && this.content[arrRandom[0]].type === rock) ||
-      (this.type === scissors && this.content[arrRandom[0]].type === paper) ||
-      (this.type === rock && this.content[arrRandom[0]].type === scissors) ||
-      (this.type === lizard && this.content[arrRandom[0]].type === spock) ||
-      (this.type === spock && this.content[arrRandom[0]].type === scissors) ||
-      (this.type === rock && this.content[arrRandom[0]].type === lizard) ||
-      (this.type === lizard && this.content[arrRandom[0]].type === paper) ||
-      (this.type === spock && this.content[arrRandom[0]].type === rock) ||
-      (this.type === scissors && this.content[arrRandom[0]].type === lizard) ||
-      (this.type === paper && this.content[arrRandom[0]].type === spock)
+      (this.type === dictionary.Paper &&
+        this.content[arrRandom[0]].type === dictionary.Rock) ||
+      (this.type === dictionary.Scissors &&
+        this.content[arrRandom[0]].type === dictionary.Paper) ||
+      (this.type === dictionary.Rock &&
+        this.content[arrRandom[0]].type === dictionary.Scissors) ||
+      (this.type === dictionary.Lizard &&
+        this.content[arrRandom[0]].type === dictionary.Spock) ||
+      (this.type === dictionary.Spock &&
+        this.content[arrRandom[0]].type === dictionary.Scissors) ||
+      (this.type === dictionary.Rock &&
+        this.content[arrRandom[0]].type === dictionary.Lizard) ||
+      (this.type === dictionary.Lizard &&
+        this.content[arrRandom[0]].type === dictionary.Paper) ||
+      (this.type === dictionary.Spock &&
+        this.content[arrRandom[0]].type === dictionary.Rock) ||
+      (this.type === dictionary.Scissors &&
+        this.content[arrRandom[0]].type === dictionary.Lizard) ||
+      (this.type === dictionary.Paper &&
+        this.content[arrRandom[0]].type === dictionary.Spock)
     ) {
       setTimeout(() => {
         this.stateG = 'You Win';
@@ -127,7 +139,7 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       this.statusGame = true;
     }, 4000);
-    
+
     setTimeout(() => {
       this.gameOver = true;
     }, 6000);
