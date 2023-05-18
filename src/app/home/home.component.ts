@@ -82,57 +82,42 @@ export class HomeComponent implements OnInit {
       Spock: 'Spock',
     };
 
-    this.changeMode ? (this.numberMode = 5) : (this.numberMode = 3);
+    this.numberMode = this.changeMode ? 5 : 3;
 
-    const arrRandom = Array.from({ length: 1 }, () =>
-      Math.floor(Math.random() * this.numberMode)
-    );
+    const arrRandom = [Math.floor(Math.random() * this.numberMode)];
 
     this.header = false;
     this.type = type;
     const position = this.content.findIndex((item) => item.type === type);
     this.img = this.content[position].image;
 
-    if (this.content[arrRandom[0]].type === type) {
-      setTimeout(() => {
+    const currentPlayerType = this.content[arrRandom[0]].type;
+    const playerType = this.type;
+
+    const winConditions = {
+      [dictionary.Paper]: [dictionary.Rock, dictionary.Spock],
+      [dictionary.Scissors]: [dictionary.Paper, dictionary.Lizard],
+      [dictionary.Rock]: [dictionary.Scissors, dictionary.Lizard],
+      [dictionary.Lizard]: [dictionary.Spock, dictionary.Paper],
+      [dictionary.Spock]: [dictionary.Scissors, dictionary.Rock],
+    };
+
+    setTimeout(() => {
+      if (currentPlayerType === type) {
         this.stateG = 'Tie';
-      }, 3000);
-    } else if (
-      (this.type === dictionary.Paper &&
-        this.content[arrRandom[0]].type === dictionary.Rock) ||
-      (this.type === dictionary.Scissors &&
-        this.content[arrRandom[0]].type === dictionary.Paper) ||
-      (this.type === dictionary.Rock &&
-        this.content[arrRandom[0]].type === dictionary.Scissors) ||
-      (this.type === dictionary.Lizard &&
-        this.content[arrRandom[0]].type === dictionary.Spock) ||
-      (this.type === dictionary.Spock &&
-        this.content[arrRandom[0]].type === dictionary.Scissors) ||
-      (this.type === dictionary.Rock &&
-        this.content[arrRandom[0]].type === dictionary.Lizard) ||
-      (this.type === dictionary.Lizard &&
-        this.content[arrRandom[0]].type === dictionary.Paper) ||
-      (this.type === dictionary.Spock &&
-        this.content[arrRandom[0]].type === dictionary.Rock) ||
-      (this.type === dictionary.Scissors &&
-        this.content[arrRandom[0]].type === dictionary.Lizard) ||
-      (this.type === dictionary.Paper &&
-        this.content[arrRandom[0]].type === dictionary.Spock)
-    ) {
-      setTimeout(() => {
+      } else if (winConditions[playerType].includes(currentPlayerType)) {
         this.stateG = 'You Win';
         this.score++;
         localStorage.setItem('score', JSON.stringify(this.score));
-      }, 3000);
-    } else {
-      setTimeout(() => {
+      } else {
         this.stateG = 'You Lose';
-      }, 3000);
-    }
+      }
+    }, 3000);
 
     setTimeout(() => {
-      this.theHousePick = this.content[arrRandom[0]].type;
-      this.theHousePickImg = this.content[arrRandom[0]].image;
+      const housePick = this.content[arrRandom[0]];
+      this.theHousePick = housePick.type;
+      this.theHousePickImg = housePick.image;
       this.stateG;
     }, 3000);
 

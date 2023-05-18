@@ -3,8 +3,8 @@
     <div class="mx-auto rounded-4 p-4 fs-4 header">
       <div class="d-flex justify-content-between">
         <div class="font">
-          <img src="{{ !changeMode ? '../../assets/images/logo.svg'  : '../../assets/images/logo-bonus.svg' }}"
-            height="90px;" alt="logo" />
+          <img [src]="!changeMode ? '../../assets/images/logo.svg' : '../../assets/images/logo-bonus.svg'" height="90px"
+            alt="logo" />
         </div>
         <div class="bg-white rounded text-center font shadow bg-body rounded"
           style="height: 85px; padding: 12px 33px 0px 33px">
@@ -18,44 +18,44 @@
   </header>
 
   <div *ngIf="!changeMode" @myInsertRemoveTrigger>
-    <section class="mt-5 pt-5 text-center fondoT" *ngIf="header == true">
+    <section class="mt-5 pt-5 text-center fondoT" *ngIf="header">
       <div *ngFor="let element of content" class="rounded-circle bg-white align-middle cursor-pointer" [ngClass]="{
-          paper: element.type == 'Paper',
+          paper: element.type === 'Paper',
           scissors: element.type === 'Scissors',
           rock: element.type === 'Rock',
           hideLizard: element.type === 'Lizard',
           hideSpock: element.type === 'Spock'
         }" (click)="game(element.type)">
         <img [ngClass]="{
-            paperPosition: element.type == 'Paper',
+            paperPosition: element.type === 'Paper',
             scissorsPosition: element.type === 'Scissors',
             rockPosition: element.type === 'Rock'
-          }" src="{{ element.image }}" alt="{{ element.type }}" />
+          }" [src]="element.image" alt="{{ element.type }}" />
       </div>
     </section>
   </div>
 
   <div *ngIf="changeMode" @myInsertRemoveTrigger>
-    <section class="mt-3 pt-1 text-center fondoP" *ngIf="header == true">
+    <section class="mt-3 pt-1 text-center fondoP" *ngIf="header">
       <div *ngFor="let element of content" class="rounded-circle bg-white align-middle cursor-pointer" [ngClass]="{
-          paperPenta: element.type == 'Paper',
+          paperPenta: element.type === 'Paper',
           scissorsPenta: element.type === 'Scissors',
           rockPenta: element.type === 'Rock',
           spockPenta: element.type === 'Spock',
           lizardPenta: element.type === 'Lizard'
         }" (click)="game(element.type)">
         <img [ngClass]="{
-            paperPentaPosition: element.type == 'Paper',
+            paperPentaPosition: element.type === 'Paper',
             scissorsPentaPosition: element.type === 'Scissors',
             rockPentaPosition: element.type === 'Rock',
             spockPentaPosition: element.type === 'Spock',
             lizardPentaPosition: element.type === 'Lizard'
-          }" src="{{ element.image }}" alt="{{ element.type }}" />
+          }" [src]="element.image" alt="{{ element.type }}" />
       </div>
     </section>
   </div>
 
-  <app-modal-options *ngIf="header == true"></app-modal-options>
+  <app-modal-options *ngIf="header"></app-modal-options>
   <!-- <app-modal-rules *ngIf="header == true"></app-modal-rules> -->
 
   <section class="mt-5 text-center" *ngIf="header == false">

@@ -144,18 +144,23 @@
 }
 
 @media screen and (max-width: 2410px) {
+  .fondoP {
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 50vh;
+  }
   .fondoT {
-    background-image: url("../../assets/images/bg-triangle.svg");
     background-repeat: no-repeat;
     background-position: center;
     height: 60vh;
   }
 
+  .fondoT {
+    background-image: url("../../assets/images/bg-triangle.svg");
+  }
+
   .fondoP {
     background-image: url("../../assets/images/bg-pentagon.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 60vh;
   }
 
   .header {
@@ -168,28 +173,7 @@
 
 @media screen and (max-width: 1900px) {
   .fondoT {
-    background-image: url("../../assets/images/bg-triangle.svg");
-    background-repeat: no-repeat;
-    background-position: center;
     height: 70vh;
-  }
-
-  .fondoP {
-    background-image: url("../../assets/images/bg-pentagon.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 60vh;
-  }
-
-  .header {
-    width: 700px;
-    height: 136px;
-    border: 2px solid hsl(217, 16%, 45%);
-    border-radius: 2px;
-  }
-
-  .start-100 {
-    left: 94% !important;
   }
 }
 
@@ -209,101 +193,35 @@
     border-radius: 2px;
   }
 
-  .paper {
+  .paper,
+  .scissors,
+  .rock {
     width: 125px;
     height: 125px;
     position: relative;
     padding: 15px 20px;
+  }
+
+  .paper {
     margin-left: 2px;
     margin-top: -37px;
   }
 
   .scissors {
-    width: 125px;
-    height: 125px;
-    position: relative;
-    padding: 15px 20px;
     margin-left: 222px;
     margin-top: -124px;
   }
 
   .rock {
-    width: 125px;
-    height: 125px;
-    position: relative;
-    padding: 15px 20px;
     margin-left: 112px;
     margin-top: 57px;
   }
 
-  .paperPosition {
-    margin-top: 2px;
-    width: 35px;
-    height: 45px;
-  }
-
-  .scissorsPosition {
-    margin-top: 2px;
-    width: 35px;
-    height: 45px;
-  }
-
+  .paperPosition,
+  .scissorsPosition,
   .rockPosition {
     margin-top: 2px;
-    width: 35px;
-    height: 45px;
-  }
-
-  .start-100 {
-    left: 50% !important;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .header {
-    width: 334px;
-    height: 136px;
-    border: 2px solid hsl(217, 16%, 45%);
-    border-radius: 2px;
-  }
-
-  .fondoT {
-    background-image: url("../../assets/images/bg-triangle.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 98vh;
-    width: 682px;
-  }
-
-  .paper {
-    width: 200px;
-    height: 200px;
-    position: relative;
-    padding: 15px 20px;
-    margin-left: 78px;
-    margin-top: 32px;
-  }
-
-  .scissors {
-    width: 200px;
-    height: 200px;
-    position: relative;
-    padding: 15px 20px;
-    margin-left: 409px;
-    margin-top: -200px;
-  }
-
-  .rock {
-    width: 200px;
-    height: 200px;
-    position: relative;
-    padding: 15px 20px;
-    margin-left: 244px;
-    margin-top: 42px;
-  }
-
-  .start-100 {
-    /* left: 88% !important; */
-    margin-top: 2px;
+    width: 50px;
+    height: 61px;
   }
 }
