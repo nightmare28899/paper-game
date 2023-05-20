@@ -27,42 +27,27 @@ import {
 export class HomeComponent implements OnInit {
   constructor(private api: BackendApiService) {}
 
-  public content: Array<any> = [
-    {
-      type: 'Paper',
-      image: '../../assets/images/icon-paper.svg',
-    },
-    {
-      type: 'Scissors',
-      image: '../../assets/images/icon-scissors.svg',
-    },
-    {
-      type: 'Rock',
-      image: '../../assets/images/icon-rock.svg',
-    },
-    {
-      type: 'Lizard',
-      image: '../../assets/images/icon-lizard.svg',
-    },
-    {
-      type: 'Spock',
-      image: '../../assets/images/icon-spock.svg',
-    },
+  public content = [
+    { type: 'Paper', image: '../../assets/images/icon-paper.svg' },
+    { type: 'Scissors', image: '../../assets/images/icon-scissors.svg' },
+    { type: 'Rock', image: '../../assets/images/icon-rock.svg' },
+    { type: 'Lizard', image: '../../assets/images/icon-lizard.svg' },
+    { type: 'Spock', image: '../../assets/images/icon-spock.svg' }
   ];
 
-  header: boolean = true;
-  type: string = '';
-  img: string = '';
-  theHousePickImg: string = '';
-  theHousePick: string = '';
-  score: number = 0;
-  stateG: string = '';
-  stateHP: string = '';
-  statusGame: boolean = false;
-  result: string = '';
-  gameOver: boolean = false;
-  changeMode: boolean = false;
-  private numberMode: number = 0;
+  header = true;
+  type = '';
+  img = '';
+  theHousePickImg = '';
+  theHousePick = '';
+  score = 0;
+  stateG = '';
+  stateHP = '';
+  statusGame = false;
+  result = '';
+  gameOver = false;
+  changeMode = false;
+  private numberMode = 0;
 
   ngOnInit(): void {
     if (localStorage.getItem('score')) {
