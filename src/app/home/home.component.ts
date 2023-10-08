@@ -35,18 +35,18 @@ export class HomeComponent implements OnInit {
     { type: 'Spock', image: '../../assets/images/icon-spock.svg' }
   ];
 
-  header = true;
-  type = '';
-  img = '';
-  theHousePickImg = '';
-  theHousePick = '';
-  score = 0;
-  stateG = '';
-  stateHP = '';
-  statusGame = false;
-  result = '';
-  gameOver = false;
-  changeMode = false;
+  public header = true;
+  public type = '';
+  public img = '';
+  public theHousePickImg = '';
+  public theHousePick = '';
+  public score = 0;
+  public stateG = '';
+  public stateHP = '';
+  public statusGame = false;
+  public result = '';
+  public gameOver = false;
+  public changeMode = false;
   private numberMode = 0;
 
   ngOnInit(): void {
